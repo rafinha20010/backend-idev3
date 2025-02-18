@@ -6,4 +6,4 @@ class user{
     }
 }
 
-modulo.exports = User;
+module.exports = User;

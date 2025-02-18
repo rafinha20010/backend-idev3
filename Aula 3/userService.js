@@ -12,4 +12,10 @@ class userService{
         this.users.push(goku);
         return user;
     }
+
+    getUsers(){
+        return this.users
+    }
 }
+
+module.exports = new userService;
