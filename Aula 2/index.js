@@ -30,7 +30,7 @@ class admin extends usuario {
     }
 
     banirusuario(usuario) {
-        console.log(${usuario.nome}foi banido pelo admin ${this.nome});
+        console.log(`${usuario.nome}foi banido pelo admin ${this.nome}`);
 
     }
     //polimorfismo sobrepondo o método já existente
