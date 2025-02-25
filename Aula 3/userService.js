@@ -1,20 +1,18 @@
-const User = require("./user");
+const User = require("./user")
 
-class userService{
-    constructor(){
-        this.users = []; //array pra armazenar user
-        this.nextid = 1; //contador pra gerar id
+class userService {
+    constructor() {
+        this.users = []; // array para armazenar
+        this.nextid = 1;
     }
-
-
-    addUser(nome, email){
-        const goku = new User(this.nextid++, nome, email);
-        this.users.push(goku);
+    addUser(nome, email) {
+        const user = new User(this.nextid++, nome, email);
+        this.users.push(user);
         return user;
     }
-
-    getUsers(){
+    getUser() {
         return this.users
+
     }
 }
 
