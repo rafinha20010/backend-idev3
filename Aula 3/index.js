@@ -11,7 +11,8 @@ app.post("/users", (req, res) => {
         return res.status(400).json
             ({ error: "Inserir Nome e Email" })
     }
-    const user = userService.adduser(nome, email);
+    const user
+     = userService.adduser(nome, email);
     res.status(200).json({ user });
 })
 // rota pra listar os usuarios

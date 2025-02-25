@@ -7,4 +7,4 @@ class User {
 
 
 }
-module.exports = User; //exporta o modulo
+module.exports = User; //exporta o modulo                

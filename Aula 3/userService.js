@@ -49,7 +49,7 @@ class userService{
             }
         }
 
-        getUsers(){
+        getUsers(){                                                                                                               
             try{
             return this.users
             }catch(erro){
