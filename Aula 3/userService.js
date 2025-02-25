@@ -30,13 +30,22 @@ class userService{
         }
     }
 
+    saveUsers(){
+        try{
+            fs.writeFileSync(this.filePath, json.stringify(this.users));
+        }catch(erro){
+            console.log("Erro ao salvar arquivo", erro);
+        }
+    }
+
         addUser(nome, email){
             try{
             const user = new User(this.nextId++, nome, email); //++ vai adicionar mais 1 no número do id a cada novo usuário, que inicialmente é 1.
-            this.users.push(user)
+            this.users.push(user);
+            this.saveUsers();
             return user;
             }catch(erro){
-                console.log("Erro", erro)
+                console.log("Erro", erro);
             }
         }
 
@@ -44,7 +53,7 @@ class userService{
             try{
             return this.users
             }catch(erro){
-                console.log("Erro", erro)
+                console.log("Erro", erro);
             }
         }
 }
