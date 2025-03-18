@@ -58,7 +58,7 @@ class userService {
     }
     deleteUser(id) {
         try {
-            this.users = this.users.filter(user => user.id !== id);
+                        this.users = this.users.filter(user => user.id !== id);
             this.saveUsers();
         } catch (erro) {
             console.log("Erro ao deletar o usuario", erro);
