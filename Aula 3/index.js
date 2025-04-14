@@ -1,25 +1,24 @@
-const express = require("express");
-const userService = require("./userService");
+const express = require('express');
+const userService = require('./userService');
 
-const app = express();
-app.use(express.json);
+const app = express(); //nome qualquer para express
+app.use(express.json());
 
-app.post("/users", (req, res) =>{
-    const {nome, email} = req.body;
-    if(!nome || !email){
-        return res.status(400).json
-        ({error: "Nome e email obrigatórios"})
+app.post("/users", async (req, res) => {
+    const { nome, email, senha, endereco, telefone, cpf } = req.body;
+    if (!nome || !email || !senha || !endereco || !telefone || !cpf) {
+        return res.status(400).json({ error: "Todos os campos são obrigatórios: nome, email, senha, cpf, endereco, telefone" });
     }
+    const user = await userService.addUser (nome, email, senha, endereco, telefone, cpf);
+    res.status(200).json({ user });
+});
 
-    const user = userService.addUser(nome, email);
-    res.status(200).json({user});
-})
-
-app.get("/users", (req, res) =>{
+// rota pra listar os usuarios
+app.get("/users", (req, res) => {
     res.json(userService.getUsers());
 });
 
 const port = 3000;
-app.listen(port,() =>{
-    console.log("Servidor rodando na porta: ", port);
-})
+app.listen(port, () => {
+    console.log("servidor rodando na porta", port);
+});
